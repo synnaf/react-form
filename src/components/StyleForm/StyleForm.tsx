@@ -1,30 +1,34 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, useReducer } from 'react';
 import Form from '../form/form';
 import PrintResult from '../printresult/Printresult';
 
 
 export default function StyleForm() {
+let defaultValue = {
+    color: '',
+    fontstyle: '',
+    fontsize: ''
+};  
 
-    //vill vi använda useReducer här istället? 
-    const [title, setTitle] = useState(''); 
-
-//här hämtar vi saker från form 
-//och vi skickar info till prinresult 
+//vill vi använda useReducer här istället? 
+const [title, setTitle] = useReducer(
+    (state: any, newState: any) => ({...state, ...newState}), defaultValue
+); 
 
 //vad ska handleChange göra? den ska sätta statet för styleform? 
-function handleChange(e: any) {
-    setTitle(e.target.value); 
+function handleChange(e: ChangeEvent<HTMLInputElement>) {
+    let t = e.target.name;
+    let value = e.target.value; 
+
+    setTitle({[t]: value} as any);
+    console.log(t, value); 
+    console.log(title); // den uppdaterar, den läger inte till?  
 }
 
     return(
         <>
             <Form styleChange={handleChange}></Form>
-
-            {/* vad är det vi vill skicka med här?  */}
-            {/* är det här vi vill skicka resultatet av vår state change?? value={value from event} */}
-            {/* <PrintResult color={title}></PrintResult>  */}
-
-            <PrintResult color={title} fontSize={12} fontStyle={'test'}></PrintResult> 
+            <PrintResult color={title.color} fontSize={title.fontsize} fontStyle={title.fontstyle}></PrintResult> 
         </>
     );
 }

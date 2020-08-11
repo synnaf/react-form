@@ -18,33 +18,6 @@ export interface UserStyling {
 
 export default function Form(props: any) {
 
-    // let defaultColor: Color = {
-    //     color:''
-    // }; 
-    // let defaultFont: Font = {
-    //     fontStyle: '',  
-    //     fontSize:0
-    // };     
-
-    // const [colorValue, setColorValue] = 
-    //     useReducer((colorState: Color, newColor: Color) => 
-    //         ({...colorState, ...newColor}), defaultColor); 
-
-    // const [fontValue, setFontValue] = 
-    // useReducer((fontState: Font, newFont: Font) => 
-    //     ({...fontState, ...newFont}), defaultFont); 
-
-    // function updateColor(e: ChangeEvent<any>) {
-    //     let name = e.target.name; 
-    //     let value = e.target.value; 
-    //     setColorValue( {[name]: value} as any); 
-    // }
-    // function updateFont(e: ChangeEvent<any>) {
-    //     let name = e.target.name; 
-    //     let value = e.target.value; 
-    //     setFontValue( {[name]: value} as any); 
-    // }
-
     // korrekt användning av useReducer för stylingen? 
     let defaultStyling: UserStyling = {
         fontStyle: '',  
@@ -65,20 +38,6 @@ export default function Form(props: any) {
 
     return(
         <>
-            {/* <form onChange={props.styleChange}>
-                <select value={colorValue.color} onChange={updateColor} name="color">
-                    <option>Pk</option>
-                    <option>Be</option>
-                    <option>Mt</option>
-                </select>
-                <select value={fontValue.fontStyle} onChange={updateFont} name="font">
-                    <option>T</option>
-                    <option>V</option>
-                    <option>m</option>
-                </select>
-            </form> */}
-
-
             <form onChange={props.styleChange}>
                 <select value={stylingValue.color} onChange={updateStyling} name="color">
                     <option>Pink</option>
@@ -86,9 +45,9 @@ export default function Form(props: any) {
                     <option>Mint</option>
                 </select>
                 <select value={stylingValue.fontStyle} onChange={updateStyling} name="font">
-                    <option>Times</option>
-                    <option>Verdana</option>
-                    <option>Robotic</option>
+                    <option>sans-serif</option>
+                    <option>cursive</option>
+                    <option>serif</option>
                 </select>
                 <select value={stylingValue.fontSize} onChange={updateStyling} name="fontsize">
                     <option>12</option>
