@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Form, { Color } from '../form/form';
+import Form from '../form/form';
 import PrintResult from '../printresult/Printresult';
 
 
@@ -19,9 +19,12 @@ function handleChange(e: any) {
     return(
         <>
             <Form styleChange={handleChange}></Form>
+
             {/* vad är det vi vill skicka med här?  */}
             {/* är det här vi vill skicka resultatet av vår state change?? value={value from event} */}
-            <PrintResult color={title}></PrintResult> 
+            {/* <PrintResult color={title}></PrintResult>  */}
+
+            <PrintResult color={title} fontSize={12} fontStyle={'test'}></PrintResult> 
         </>
     );
 }

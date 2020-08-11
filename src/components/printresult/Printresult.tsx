@@ -1,8 +1,9 @@
 import React from 'react'; 
-import { Color } from '../form/form';
+import { UserStyling } from '../form/form';
+import './Printresult.css'; 
 
 
-export default function PrintResult(props: Color) {
+export default function PrintResult(props: UserStyling) {
    
    //hämta värdet från formuläret 
    let userStyling = props.color;
